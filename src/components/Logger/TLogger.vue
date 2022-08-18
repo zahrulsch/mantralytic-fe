@@ -1,16 +1,9 @@
 <script lang="ts" setup>
 import { onMounted, onUnmounted, ref, watch } from "vue";
 import { NPopover, NButton, NScrollbar } from "naive-ui";
+import { Log } from "../../typings/logs";
 import TLoggerRow from "./TLoggerRow.vue";
 import socket from "../../utils/socket";
-
-interface Log {
-  type: "crawler" | "connection" | "";
-  url: string;
-  marketplaceType: "shopee" | "tokopedia" | "";
-  status: "success" | "error";
-  title: string;
-}
 
 const openLogs = ref(false);
 const logsListElement = ref<HTMLDivElement | null>(null);
@@ -21,25 +14,23 @@ const logCatcher = (data: Log) => {
   logs.value.push(data);
 };
 
-watch(logsListElementContainer, (el) => {
-  if (el) {
-    if (logsListElement.value) {
-      logsListElement.value.scrollTo({ top: el.clientHeight, behavior: "auto" });
-    }
-  }
+const scroller = () => {
+  logsListElement.value?.scrollTo({
+    top:
+      logsListElementContainer.value?.clientHeight &&
+      logsListElementContainer.value.clientHeight + 1000,
+    behavior: "auto",
+  });
+};
+
+watch(logsListElementContainer, () => {
+  scroller();
 });
 
 watch(
   () => logs.value.length,
   () => {
-    if (logsListElementContainer.value) {
-      if (logsListElement.value) {
-        logsListElement.value.scrollTo({
-          top: logsListElementContainer.value.clientHeight + 1000,
-          behavior: "auto",
-        });
-      }
-    }
+    scroller();
   },
   { immediate: true }
 );
@@ -47,6 +38,7 @@ watch(
 onMounted(() => {
   socket.on("log", logCatcher);
   socket.emit("connection");
+  socket.emit("dbstatus");
 });
 
 onUnmounted(() => {
@@ -58,11 +50,11 @@ onUnmounted(() => {
   <div class="t-logs-container">
     <n-popover :show="openLogs" trigger="manual" placement="left">
       <template #trigger>
-        <n-button @click="openLogs = !openLogs" size="small" type="primary" tertiary>
+        <n-button @click="openLogs = !openLogs" size="tiny" type="info">
           <template #icon>
             <i class="bi bi-list-task"></i>
           </template>
-          <span>Buka Log</span>
+          <span>Log</span>
         </n-button>
       </template>
       <div class="t-logs-list">
@@ -93,7 +85,7 @@ onUnmounted(() => {
   }
   &-list {
     height: 600px;
-    width: 400px;
+    width: 500px;
     overflow: hidden;
   }
 }

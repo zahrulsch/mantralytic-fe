@@ -29,22 +29,22 @@ const updatedValue = (v: any) => {
     <n-layout-sider
       show-trigger="arrow-circle"
       collapse-mode="width"
-      :collapsed-width="60"
-      :width="200"
+      :collapsed-width="64"
+      :width="250"
       :native-scrollbar="false"
       v-model:collapsed="collapsed"
       bordered
     >
       <div v-if="!collapsed" class="t-menu-header">
         <router-link to="/">
-          <n-image width="120" title="mantralytic" :src="mantralytic" preview-disabled />
+          <n-image width="180" title="mantralytic" :src="mantralytic" preview-disabled />
         </router-link>
       </div>
       <div v-else class="t-menu-header-collapsed">
         <router-link to="/">
           <n-image
             title="mantralytic"
-            width="14"
+            width="16"
             :src="mantralyticmini"
             preview-disabled
           />
@@ -94,14 +94,14 @@ const updatedValue = (v: any) => {
   font-weight: 400;
   &-header {
     margin-top: 18px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: center;
     &-collapsed {
       display: flex;
       justify-content: center;
       margin-top: 18px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
   }
 }

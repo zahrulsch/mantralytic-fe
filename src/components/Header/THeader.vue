@@ -13,7 +13,7 @@ const slots = useSlots();
     <i
       v-if="slots.icon"
       :style="{
-        color: props.iconColor || '#bcf368',
+        color: props.iconColor || '#017746',
         fontSize: props.iconSize ? props.iconSize + 'px' : '13px',
       }"
       class="t-header-icon"
@@ -28,8 +28,9 @@ const slots = useSlots();
 .t-header {
   font-weight: 500;
   font-size: 14px;
-  color: var(--color-dark-5);
+  color: var(--color-dark-2);
   user-select: none;
+  font-family: "Source Sans 3", sans-serif;
   &-icon {
     margin-right: var(--size-1);
   }

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
 import { NImage, NButton } from "naive-ui";
 import THeader from "../components/Header/THeader.vue";
@@ -21,6 +21,14 @@ const runCrawler = async () => {
     urls: filteredUrls,
   });
 };
+
+const urlLength = computed(() => {
+  const filteredUrls = urls.value
+    .split("\n")
+    .filter(Boolean)
+    .map((url) => url.trim());
+  return filteredUrls.length;
+});
 </script>
 
 <template>
@@ -40,6 +48,7 @@ const runCrawler = async () => {
       placeholder="Masukan URL pisahkan dengan baris baru"
       v-model:value="urls"
     />
+    <span class="px-1">{{ urlLength }} url</span>
     <n-button @click="runCrawler" type="primary" size="tiny">
       <template #icon>
         <i style="font-size: 13px" class="bi bi-play-fill"></i>
