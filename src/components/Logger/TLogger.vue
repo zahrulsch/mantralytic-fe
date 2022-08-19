@@ -50,9 +50,9 @@ onUnmounted(() => {
   <div class="t-logs-container">
     <n-popover :show="openLogs" trigger="manual" placement="left">
       <template #trigger>
-        <n-button @click="openLogs = !openLogs" size="tiny" type="info">
+        <n-button @click="openLogs = !openLogs" size="small" type="info">
           <template #icon>
-            <i class="bi bi-list-task"></i>
+            <i class="t-font-size-13 bi bi-list-task"></i>
           </template>
           <span>Log</span>
         </n-button>

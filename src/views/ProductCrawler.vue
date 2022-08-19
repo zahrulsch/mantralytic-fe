@@ -42,6 +42,7 @@ const urlLength = computed(() => {
       <n-image preview-disabled :object-fit="'contain'" :width="14" :src="shopee" />
       <n-image preview-disabled :object-fit="'contain'" :width="14" :src="tokopedia" />
     </div>
+    <t-input placeholder="Nama koleksi (opsional)" />
     <t-input
       type="textarea"
       :rows="25"

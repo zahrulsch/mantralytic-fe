@@ -37,7 +37,7 @@ const updatedValue = (v: any) => {
     >
       <div v-if="!collapsed" class="t-menu-header">
         <router-link to="/">
-          <n-image width="180" title="mantralytic" :src="mantralytic" preview-disabled />
+          <n-image width="150" title="mantralytic" :src="mantralytic" preview-disabled />
         </router-link>
       </div>
       <div v-else class="t-menu-header-collapsed">
@@ -96,7 +96,7 @@ const updatedValue = (v: any) => {
     margin-top: 18px;
     margin-bottom: 10px;
     display: flex;
-    justify-content: center;
+    padding-left: 32px;
     &-collapsed {
       display: flex;
       justify-content: center;

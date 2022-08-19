@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { NConfigProvider, NMessageProvider, NNotificationProvider } from "naive-ui";
 import Layout from "./layout/Layout.vue";
+
+import dj from "dayjs";
+import "dayjs/locale/id";
+
+dj.locale("id");
 </script>
 
 <template>

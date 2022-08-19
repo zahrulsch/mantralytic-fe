@@ -80,7 +80,7 @@ const styleClass = computed(() => {
   padding-inline: 7px;
   margin-bottom: 8px;
   transition: 250ms ease;
-  background-color: rgba(245, 245, 245, 0.5);
+  background-color: rgba(245, 245, 245, 0.7);
 
   &:hover {
     background-color: #f0f0f0ce;

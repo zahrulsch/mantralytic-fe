@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import Home from './views/Home.vue'
 import ProductCrawler from './views/ProductCrawler.vue'
+import ProductStatistic from './views/ProductStatistic.vue'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -12,6 +13,11 @@ const routes: RouteRecordRaw[] = [
     path: "/product-crawler",
     meta: { pageName: "Crawler Produk" },
     component: ProductCrawler,
+  },
+  {
+    path: "/product-statistic",
+    meta: { pageName: "Statistik Produk" },
+    component: ProductStatistic,
   },
 ];
 

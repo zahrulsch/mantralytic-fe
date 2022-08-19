@@ -7,7 +7,7 @@ const props = defineProps<TInputProps>()
 </script>
 
 <template>
-  <n-input type="textarea" class="t-input" v-bind="props" />
+  <n-input class="t-input" v-bind="props" />
 </template>
 
 <style lang="scss">

@@ -22,7 +22,7 @@
   --color-dark-7: #F7F7F7;
   
   @for $size from 1 to 8 {
-    --size-#{$size}: #{ $size * 4 }px;
+    --size-#{$size}: #{ $size * 3.5 }px;
   }
 }
 pre {
@@ -76,8 +76,19 @@ body {
   row-gap: var(--size-2);
   align-items: start;
 }
+.t-box-plain {
+  padding: var(--size-2);
+  padding-inline: var(--size-4);
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--size-2);
+  align-items: start;
+}
 .t-font-primary {
   font-family: 'Source Sans Pro', Avenir, Calibri, sans-serif;
+}
+.t-font-secondary {
+  font-family: 'Source Sans 3', Avenir, Calibri, sans-serif;
 }
 .t-font-code {
   font-family: 'Fira Code', monospace, sans-serif;

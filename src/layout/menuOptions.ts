@@ -23,7 +23,7 @@ export const menuOptions: MenuOption[] = [
   },
   {
     label: 'Statistik Produk',
-    key: '/product-stat',
+    key: '/product-statistic',
     icon: renderIcon("i", "bi bi-bar-chart-fill"),
   },
   {
