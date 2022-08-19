@@ -13,7 +13,7 @@ const slots = useSlots();
     <i
       v-if="slots.icon"
       :style="{
-        color: props.iconColor || '#017746',
+        color: props.iconColor || '#00ce7f',
         fontSize: props.iconSize ? props.iconSize + 'px' : '13px',
       }"
       class="t-header-icon"

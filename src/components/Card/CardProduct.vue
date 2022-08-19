@@ -50,7 +50,7 @@ const postDate = computed(() => {
 });
 
 const updateDate = computed(() => {
-  return dj(props.updated).format("DD MMM YYYY");
+  return dj(props.updated).format("DD MMM YYYY - HH:mm");
 });
 </script>
 

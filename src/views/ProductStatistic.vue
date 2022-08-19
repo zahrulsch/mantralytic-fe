@@ -46,7 +46,14 @@ onMounted(() => {
 <style lang="scss">
 .t-product-list {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
   gap: var(--size-3);
+  grid-template-columns: repeat(6, 1fr);
+
+  @include res("large") {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  @include res("xxlarge") {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }
 </style>
