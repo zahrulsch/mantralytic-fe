@@ -46,11 +46,11 @@ const prices = computed(() => {
 });
 
 const postDate = computed(() => {
-  return dj(props.created).format("DD MMM YYYY");
+  return dj(props.created).format("DD MMM YY");
 });
 
 const updateDate = computed(() => {
-  return dj(props.updated).format("DD MMM YYYY - HH:mm");
+  return dj(props.updated).format("DD MMM YY - HH:mm");
 });
 </script>
 
@@ -66,7 +66,12 @@ const updateDate = computed(() => {
       <span class="loc t-font-size-11">{{ props.supplierInfo?.location }}</span>
     </div>
     <div class="t-card-product-thumb">
-      <img :src="props.thumbnail" :alt="props.name" :title="props.name" />
+      <img
+        crossorigin="anonymous"
+        :src="props.thumbnail"
+        :alt="props.name"
+        :title="props.name"
+      />
       <span
         :class="[
           't-font-size-11 has-text-weight-semibold t-card-product-marketplace',
@@ -75,9 +80,11 @@ const updateDate = computed(() => {
         >{{ props.marketplace }}</span
       >
     </div>
-    <n-ellipsis line-clamp="2">
-      <span class="has-text-weight-semibold t-font-secondary">{{ props.name }}</span>
-    </n-ellipsis>
+    <router-link class="is-inline-flex" :to="`/product-statistic/${props.id}`">
+      <n-ellipsis line-clamp="2">
+        <span class="has-text-weight-semibold t-font-secondary">{{ props.name }}</span>
+      </n-ellipsis>
+    </router-link>
     <div class="t-card-product-prices">
       <span class="t-font-size-13 has-text-weight-semibold">{{ prices }}</span>
     </div>
@@ -97,13 +104,13 @@ const updateDate = computed(() => {
       <template #icon><i class="t-font-size-11 bi bi-arrow-clockwise"></i></template>
       Perbarui Data
     </t-button>
-    <div class="is-flex mt-2 is-justify-content-space-between">
+    <div class="is-flex mt-1 is-justify-content-space-between">
       <div title="Tanggal Crawl" class="is-flex is-align-items-center t-gap-x-1">
         <i class="t-font-size-10 t-color-5 bi bi-calendar-check"></i>
         <span class="t-font-size-11 t-color-5">{{ postDate }}</span>
       </div>
       <div title="Tanggal Update" class="is-flex is-align-items-center t-gap-x-1">
-        <i class="t-font-size-10 t-color-5 bi bi-clock-fill"></i>
+        <i class="t-font-size-9 t-color-5 bi bi-clock-fill"></i>
         <span class="t-font-size-11 t-color-5">{{ updateDate }}</span>
       </div>
     </div>
@@ -116,11 +123,11 @@ const updateDate = computed(() => {
   flex-direction: column;
   padding: var(--size-2);
   border-radius: 3px;
-  cursor: pointer;
   transition: 200ms ease;
   box-shadow: 0 0 16px 0px rgba(230, 230, 230, 0.6);
   position: relative;
   overflow: hidden;
+  cursor: default;
 
   &:hover {
     box-shadow: 0 0 16px 13px rgba(230, 230, 230, 0.6);
@@ -132,6 +139,14 @@ const updateDate = computed(() => {
     }
     & .t-card-product-shoplocs {
       transition-delay: 50ms;
+    }
+  }
+
+  & a {
+    color: var(--color-dark-2);
+
+    &:hover {
+      color: var(--color-dark-1);
     }
   }
 

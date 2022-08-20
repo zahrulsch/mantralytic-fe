@@ -23,12 +23,12 @@ export const menuOptions: MenuOption[] = [
   },
   {
     label: 'Statistik Produk',
-    key: '/product-statistic',
+    key: '/product-statistic/',
     icon: renderIcon("i", "bi bi-bar-chart-fill"),
   },
   {
     label: 'Crawler Produk',
-    key: '/product-crawler',
+    key: '/product-crawler/',
     icon: renderIcon("i", "bi bi-joystick"),
   },
 ]
